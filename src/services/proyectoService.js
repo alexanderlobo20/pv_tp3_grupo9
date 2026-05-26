@@ -6,4 +6,30 @@ const proyectoService = (() => {
     { id: 4, titulo: "Álgebra", categoria: "Matemáticas", estado: "En Progreso" },
     { id: 5, titulo: "Base de Datos", categoria: "Base de Datos", estado: "Finalizado" }
   ];
+
+  const obtenerProyectos = () => [...proyectos];
+
+  const agregarProyecto = (nuevoProyecto) => {
+    proyectos.push(nuevoProyecto);
+  };
+
+  const eliminarProyecto = (id) => {
+    proyectos = proyectos.filter(proyecto => proyecto.id !== id);
+  };
+
+  const buscarProyecto = (texto) => {
+    const textoMinuscula = texto.toLowerCase();
+    return proyectos.filter(proyecto => 
+      proyecto.titulo.toLowerCase().includes(textoMinuscula)
+    );
+  };
+
+  return {
+    obtenerProyectos,
+    agregarProyecto,
+    eliminarProyecto,
+    buscarProyecto
+  };
 })();
+
+export default proyectoService;
