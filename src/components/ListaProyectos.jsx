@@ -1,20 +1,32 @@
 import React, { useState } from "react";
 import proyectoService from "../services/proyectoService.js";
+import ProyectoCard from "./ProyectoCard";
 
 function ListaProyectos() {
-  const [proyectos, setProyectos] = useState( proyectoService.obtenerProyectos() );
+  const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectos());
   const [busqueda, setBusqueda] = useState("");
-  const [nuevoProyecto, setNuevoProyecto] = useState({ titulo: "", categoria: "", estado: ""});
+  const [nuevoProyecto, setNuevoProyecto] = useState({
+    titulo: "",
+    categoria: "",
+    estado: ""
+  });
+
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
+
   let proyectosFiltrados = proyectos;
   let formulario = null;
 
-  if (busqueda !== "") { proyectosFiltrados = proyectoService.buscarProyecto(busqueda); }
+  if (busqueda !== "") {
+    proyectosFiltrados = proyectoService.buscarProyecto(busqueda);
+  }
 
   if (mostrarFormulario === true) {
     formulario = (
       <div className="formulario">
-        <input  type="text" placeholder="Título"
+        <input
+          type="text"
+          placeholder="Título"
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
@@ -23,7 +35,9 @@ function ListaProyectos() {
           }
         />
 
-        <input type="text" placeholder="Categoría"
+        <input
+          type="text"
+          placeholder="Categoría"
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
@@ -32,7 +46,9 @@ function ListaProyectos() {
           }
         />
 
-        <input type="text" placeholder="Estado"
+        <input
+          type="text"
+          placeholder="Estado"
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
@@ -41,18 +57,17 @@ function ListaProyectos() {
           }
         />
 
-        <button className="BotonGuardar"
-            onClick={() => {
-              proyectoService.agregarProyecto({
+        <button
+          className="BotonGuardar"
+          onClick={() => {
+            proyectoService.agregarProyecto({
               id: proyectos.length + 1,
               titulo: nuevoProyecto.titulo,
               categoria: nuevoProyecto.categoria,
               estado: nuevoProyecto.estado
             });
 
-            setProyectos(
-              proyectoService.obtenerProyectos()
-            );
+            setProyectos(proyectoService.obtenerProyectos());
 
             setMostrarFormulario(false);
 
@@ -61,44 +76,49 @@ function ListaProyectos() {
               categoria: "",
               estado: ""
             });
-
           }}
-          > Guardar </button>
+        >
+          Guardar
+        </button>
       </div>
     );
   }
 
   return (
     <section className="proyectos">
-      <h2 className="proyectos-titulo">
-        Proyectos
-      </h2>
+      <h2 className="proyectos-titulo">Proyectos</h2>
 
       <input
         className="busqueda"
         type="text"
         placeholder="Buscar proyecto"
-        onChange={(e) => setBusqueda(e.target.value) } />
-        
-         <button className="Boton-Agregar" onClick={() => setMostrarFormulario(!mostrarFormulario) }>
-           Agregar Proyecto
-        </button>
+        onChange={(e) => setBusqueda(e.target.value)}
+      />
+
+      <button
+        className="Boton-Agregar"
+        onClick={() => setMostrarFormulario(!mostrarFormulario)}
+      >
+        Agregar Proyecto
+      </button>
 
       {formulario}
 
       <div className="proyectos-lista">
         {proyectosFiltrados.map((proyecto) => (
-          <div className="proyecto" key={proyecto.id}>
-            <h3>{proyecto.titulo}</h3>
-            <p>{proyecto.categoria}</p>
-            <p>{proyecto.estado}</p>
-            <button className="BotonEliminar"
-              onClick={() => {
-                proyectoService.eliminarProyecto( proyecto.id );
-                setProyectos( proyectoService.obtenerProyectos() );
-              }}
-            >Eliminar</button>
-          </div>
+          <ProyectoCard
+            key={proyecto.id}
+            proyecto={proyecto}
+
+            onEliminar={(id) => {
+              proyectoService.eliminarProyecto(id);
+              setProyectos(proyectoService.obtenerProyectos());
+            }}
+
+            onVerDetalle={(proyecto) => {
+              setProyectoSeleccionado(proyecto);
+            }}
+          />
         ))}
       </div>
     </section>
