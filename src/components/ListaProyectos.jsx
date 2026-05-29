@@ -1,115 +1,125 @@
-import React, { useState } from "react";
-import proyectoService from "../services/proyectoService.js";
-import ProyectoCard from "./ProyectoCard";
-import DetalleProyecto from "./DetalleProyecto";
+import React, { useState } from 'react';
+import proyectoService from '../services/proyectoService.js';
+import ProyectoCard from './ProyectoCard';
+import DetalleProyecto from './DetalleProyecto';
 
 function ListaProyectos() {
-  const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectos());
-  const [busqueda, setBusqueda] = useState("");
+  const [proyectos, setProyectos] = useState(
+    proyectoService.obtenerProyectos(),
+  );
+  const [busqueda, setBusqueda] = useState('');
   const [nuevoProyecto, setNuevoProyecto] = useState({
-    titulo: "",
-    categoria: "",
-    estado: "",
-    descripcion: "",
+    titulo: '',
+    categoria: '',
+    estado: '',
+    descripcion: '',
     integrantes: [],
     roles: [],
-    recursos: []
+    recursos: [],
   });
-  const { titulo, categoria, estado, descripcion, integrantes, roles, recursos } = nuevoProyecto;
+  const {
+    titulo,
+    categoria,
+    estado,
+    descripcion,
+    integrantes,
+    roles,
+    recursos,
+  } = nuevoProyecto;
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
 
   let proyectosFiltrados = proyectos;
   let formulario = null;
 
-  if (busqueda !== "") {
+  if (busqueda !== '') {
     proyectosFiltrados = proyectoService.buscarProyecto(busqueda);
   }
 
   if (mostrarFormulario) {
     formulario = (
-      <div className="formulario">
+      <div className='formulario'>
         <input
-          type="text"
-          placeholder="Título"
+          type='text'
+          placeholder='Título'
           value={titulo}
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
-              titulo: e.target.value
+              titulo: e.target.value,
             })
           }
         />
 
         <input
-          type="text"
-          placeholder="Categoría"
+          type='text'
+          placeholder='Categoría'
           value={categoria}
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
-              categoria: e.target.value
+              categoria: e.target.value,
             })
           }
         />
 
         <input
-          type="text"
-          placeholder="Estado"
+          type='text'
+          placeholder='Estado'
           value={estado}
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
-              estado: e.target.value
+              estado: e.target.value,
             })
           }
         />
         <input
-          type="text"
-          placeholder="Descripción"
+          type='text'
+          placeholder='Descripción'
           value={descripcion}
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
-              descripcion: e.target.value
+              descripcion: e.target.value,
             })
           }
         />
         <input
-          type="text"
-          placeholder="Integrantes (,)"
-          value={nuevoProyecto.integrantes.join(",")}
+          type='text'
+          placeholder='Integrantes (,)'
+          value={nuevoProyecto.integrantes.join(',')}
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
-              integrantes: e.target.value.split(",")
+              integrantes: e.target.value.split(','),
             })
           }
         />
         <input
-          type="text"
-          placeholder="Roles (,)"
-          value={nuevoProyecto.roles.join(",")}
+          type='text'
+          placeholder='Roles (,)'
+          value={nuevoProyecto.roles.join(',')}
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
-              roles: e.target.value.split(",")
+              roles: e.target.value.split(','),
             })
           }
         />
         <input
-          type="text"
-          placeholder="Recursos (,)"
-          value={nuevoProyecto.recursos.join(",")}
+          type='text'
+          placeholder='Recursos (,)'
+          value={nuevoProyecto.recursos.join(',')}
           onChange={(e) =>
             setNuevoProyecto({
               ...nuevoProyecto,
-              recursos: e.target.value.split(",")
+              recursos: e.target.value.split(','),
             })
           }
         />
         <button
-          className="BotonGuardar"
+          className='BotonGuardar'
           onClick={() => {
             proyectoService.agregarProyecto({
               id: Date.now(),
@@ -119,7 +129,7 @@ function ListaProyectos() {
               descripcion: descripcion,
               integrantes: integrantes,
               roles: roles,
-              recursos: recursos
+              recursos: recursos,
             });
 
             setProyectos(proyectoService.obtenerProyectos());
@@ -127,13 +137,13 @@ function ListaProyectos() {
             setMostrarFormulario(false);
 
             setNuevoProyecto({
-              titulo: "",
-              categoria: "",
-              estado: "",
-              descripcion: "",
+              titulo: '',
+              categoria: '',
+              estado: '',
+              descripcion: '',
               integrantes: [],
               roles: [],
-              recursos: []
+              recursos: [],
             });
           }}
         >
@@ -144,17 +154,17 @@ function ListaProyectos() {
   }
 
   return (
-    <section className="proyectos">
-      <h2 className="proyectos-titulo">Proyectos</h2>
+    <section className='proyectos'>
+      <h2 className='proyectos-titulo'>Proyectos</h2>
       <input
-        className="busqueda"
-        type="text"
-        placeholder="Buscar proyecto"
+        className='busqueda'
+        type='text'
+        placeholder='Buscar proyecto'
         onChange={(e) => setBusqueda(e.target.value)}
       />
 
       <button
-        className="Boton-Agregar"
+        className='Boton-Agregar'
         onClick={() => setMostrarFormulario(!mostrarFormulario)}
       >
         Agregar Proyecto
@@ -162,8 +172,8 @@ function ListaProyectos() {
 
       {formulario}
 
-      <div className="contenedor-proyectos">
-        <div className="proyectos-lista">
+      <div className='contenedor-proyectos'>
+        <div className='proyectos-lista'>
           {proyectosFiltrados.map((proyecto) => (
             <ProyectoCard
               key={proyecto.id}
@@ -188,8 +198,11 @@ function ListaProyectos() {
       </div>
 
       {proyectoSeleccionado && (
-        <div className="detalle-contenedor">
-          <DetalleProyecto proyecto={proyectoSeleccionado} />
+        <div className='detalle-contenedor'>
+          <DetalleProyecto
+            proyecto={proyectoSeleccionado}
+            onCerrar={() => setProyectoSeleccionado(null)}
+          />
         </div>
       )}
     </section>
