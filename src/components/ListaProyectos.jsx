@@ -161,6 +161,7 @@ function ListaProyectos() {
       </button>
 
       {formulario}
+
       <div className="contenedor-proyectos">
         <div className="proyectos-lista">
           {proyectosFiltrados.map((proyecto) => (
@@ -172,7 +173,10 @@ function ListaProyectos() {
                 setProyectos(proyectoService.obtenerProyectos());
               }}
               onVerDetalle={(proyecto) => {
-                if(proyectoSeleccionado && proyectoSeleccionado.id === proyecto.id) {
+                if (
+                  proyectoSeleccionado &&
+                  proyectoSeleccionado.id === proyecto.id
+                ) {
                   setProyectoSeleccionado(null);
                 } else {
                   setProyectoSeleccionado(proyecto);
@@ -181,12 +185,13 @@ function ListaProyectos() {
             />
           ))}
         </div>
-        {proyectoSeleccionado && (
-          <div className="detalle">
-            <DetalleProyecto proyecto={proyectoSeleccionado} />
-          </div>
-        )}
       </div>
+
+      {proyectoSeleccionado && (
+        <div className="detalle-contenedor">
+          <DetalleProyecto proyecto={proyectoSeleccionado} />
+        </div>
+      )}
     </section>
   );
 }
