@@ -474,17 +474,21 @@ footer {
 .BotonVerDetalle:hover {
     background-color: #0056b3;
 }
+.detalle-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
 .detalle {
-  font-size: 15px;
     width: 400px;
     border-radius: 10px;
-     background: #0057b388;
+    background: #0056b3;
     text-align: left;
     padding: 25px;
     color: #fff;
     font-family: century gothic, Tahoma, Geneva, Verdana, sans-serif;
     height: fit-content;
-    margin:0;
+    margin: 0 auto;
 }
 .detalle:hover {
     transform: translateY(-7px);
