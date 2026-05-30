@@ -3,8 +3,8 @@ import React from 'react';
 function DetalleProyecto({ proyecto, onCerrar }) {
   if (!proyecto) return null;
 
-  const { id, titulo, categoria, estado, descripcion, recursos, equipo } =
-    proyecto;
+  const { id, titulo, categoria, estado, descripcion, recursos={}, equipo=[] 
+  } = proyecto;
 
   return (
     <div className='detalle-modal'>
@@ -13,7 +13,7 @@ function DetalleProyecto({ proyecto, onCerrar }) {
           className='btn-cerrar'
           onClick={onCerrar}
         >
-          x
+          ×
         </button>
         <h2 className='detalle-titulo'>{titulo}</h2>
         <div className='detalle-espaciado'>
@@ -34,14 +34,14 @@ function DetalleProyecto({ proyecto, onCerrar }) {
           <h3>Recursos</h3>
           <div className='detalle-espaciado'>
             <p>
-              <strong>pdf: </strong>
+              <strong>PDF: </strong>
               {recursos.pdf}
             </p>
             <p>
-              <strong>drive: </strong> {recursos.drive}
+              <strong>Drive: </strong> {recursos.drive}
             </p>
             <p>
-              <strong>github: </strong>
+              <strong>GitHub: </strong>
               {recursos.github}
             </p>
           </div>
@@ -49,7 +49,7 @@ function DetalleProyecto({ proyecto, onCerrar }) {
         <div>
           <h3>Equipo</h3>
           <div className='detalle-espaciado'>
-            {equipo.map((persona, index) => (
+            {equipo?.map((persona, index) => (
               <p key={index}>
                 {persona.nombre} - {persona.rol}
               </p>
