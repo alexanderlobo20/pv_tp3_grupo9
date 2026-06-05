@@ -13,9 +13,10 @@ function ListaProyectos() {
   const [busqueda, setBusqueda] = useState('');
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
-
+  
   const [ultimaModificacion, setUltimaModificacion] = useState(null);
   const primerRender = useRef(true);
+  const accionUsuario = useRef(false);
 
   useEffect(() => {
     if (primerRender.current) {
@@ -23,16 +24,29 @@ function ListaProyectos() {
       return;
     }
 
+    if (!accionUsuario.current) return;
+
     setUltimaModificacion(new Date());
+    accionUsuario.current = false;
   }, [proyectos]);
 
   const agregarProyecto = (nuevoProyecto) => {
+    accionUsuario.current = true;
+
     proyectoService.agregarProyecto({
       id: Date.now(),
       ...nuevoProyecto,
     });
+
     setProyectos(proyectoService.obtenerProyectos());
     setMostrarFormulario(false);
+  };
+
+  const eliminarProyecto = (id) => {
+    accionUsuario.current = true;
+
+    proyectoService.eliminarProyecto(id);
+    setProyectos(proyectoService.obtenerProyectos());
   };
 
   let proyectosFiltrados = proyectos;
@@ -68,10 +82,7 @@ function ListaProyectos() {
             <ProyectoCard
               key={proyecto.id}
               proyecto={proyecto}
-              onEliminar={(id) => {
-                proyectoService.eliminarProyecto(id);
-                setProyectos(proyectoService.obtenerProyectos());
-              }}
+              onEliminar={eliminarProyecto}
               onVerDetalle={(proyecto) => {
                 if (
                   proyectoSeleccionado &&
