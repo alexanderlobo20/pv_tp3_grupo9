@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import proyectoService from '../services/proyectoService.js';
 import ProyectoCard from './ProyectoCard';
 import DetalleProyecto from './DetalleProyecto';
@@ -14,7 +14,17 @@ function ListaProyectos() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
 
-  const [ultimaModificacion, setUltimaModificacion] = useState(new Date());
+  const [ultimaModificacion, setUltimaModificacion] = useState(null);
+  const primerRender = useRef(true);
+
+  useEffect(() => {
+    if (primerRender.current) {
+      primerRender.current = false;
+      return;
+    }
+
+    setUltimaModificacion(new Date());
+  }, [proyectos]);
 
   const agregarProyecto = (nuevoProyecto) => {
     proyectoService.agregarProyecto({
