@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import proyectoService from '../services/proyectoService.js';
 import ProyectoCard from './ProyectoCard';
 import DetalleProyecto from './DetalleProyecto';
+import RegistroActividad from './RegistroActividad.jsx';
 
 function ListaProyectos() {
   const [proyectos, setProyectos] = useState(
@@ -12,6 +13,8 @@ function ListaProyectos() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
   const [mensaje, setMensaje] = useState('');
+
+  const [ultimaModificacion, setUltimaModificacion] = useState(new Date());
 
   const [nuevoProyecto, setNuevoProyecto] = useState({
     titulo: '',
@@ -54,10 +57,10 @@ function ListaProyectos() {
 
     if (!integrantes.length) return 'Debe haber integrantes';
 
-    if (integrantes.some(i => !i?.trim()))
+    if (integrantes.some((i) => !i?.trim()))
       return 'Todos los integrantes deben tener nombre';
 
-    if (roles.some(r => !r?.trim()))
+    if (roles.some((r) => !r?.trim()))
       return 'Todos los roles deben estar completos';
 
     return null;
@@ -66,7 +69,6 @@ function ListaProyectos() {
   if (mostrarFormulario) {
     formulario = (
       <div className='formulario'>
-
         <input
           type='text'
           placeholder='Título'
@@ -287,7 +289,7 @@ function ListaProyectos() {
             }}
             onVerDetalle={(proyecto) => {
               setProyectoSeleccionado(
-                proyectoSeleccionado?.id === proyecto.id ? null : proyecto
+                proyectoSeleccionado?.id === proyecto.id ? null : proyecto,
               );
             }}
           />
@@ -300,6 +302,8 @@ function ListaProyectos() {
           onCerrar={() => setProyectoSeleccionado(null)}
         />
       )}
+
+      <RegistroActividad ultimaModificacion={ultimaModificacion} />
     </section>
   );
 }
