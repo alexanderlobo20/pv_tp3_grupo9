@@ -3,6 +3,7 @@ import proyectoService from '../services/proyectoService.js';
 import ProyectoCard from './ProyectoCard';
 import DetalleProyecto from './DetalleProyecto';
 import FormularioProyecto from './FormularioProyecto';
+import RegistroActividad from './RegistroActividad.jsx';
 
 function ListaProyectos() {
   const [proyectos, setProyectos] = useState(
@@ -12,22 +13,24 @@ function ListaProyectos() {
   const [busqueda, setBusqueda] = useState('');
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
-  
+
+  const [ultimaModificacion, setUltimaModificacion] = useState(new Date());
+
   const agregarProyecto = (nuevoProyecto) => {
     proyectoService.agregarProyecto({
       id: Date.now(),
       ...nuevoProyecto,
     });
-  setProyectos(proyectoService.obtenerProyectos());
-  setMostrarFormulario(false);
+    setProyectos(proyectoService.obtenerProyectos());
+    setMostrarFormulario(false);
   };
-  
+
   let proyectosFiltrados = proyectos;
   if (busqueda !== '') {
     proyectosFiltrados = proyectoService.buscarProyecto(busqueda);
   }
 
-return (
+  return (
     <section className='proyectos'>
       <h2 className='proyectos-titulo'>Proyectos</h2>
 
@@ -82,6 +85,8 @@ return (
           />
         </div>
       )}
+
+      <RegistroActividad ultimaModificacion={ultimaModificacion} />
     </section>
   );
 }
