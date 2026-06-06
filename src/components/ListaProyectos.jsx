@@ -65,12 +65,23 @@ function ListaProyectos() {
         onChange={(e) => setBusqueda(e.target.value)}
       />
 
-      <button
-        className='Boton-Agregar'
-        onClick={() => setMostrarFormulario(!mostrarFormulario)}
-      >
-        Agregar Proyecto
-      </button>
+      {!mostrarFormulario && (
+        <button
+          className='Boton-Agregar'
+          onClick={() => setMostrarFormulario(true)}
+        >
+          Agregar Proyecto
+        </button>
+      )}
+
+      {mostrarFormulario && (
+        <button
+          className='boton-cerrar-formulario'
+          onClick={() => setMostrarFormulario(false)}
+        >
+          ✖
+        </button>
+      )}
 
       {mostrarFormulario && (
         <FormularioProyecto agregarProyecto={agregarProyecto} />

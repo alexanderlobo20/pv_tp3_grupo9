@@ -388,7 +388,7 @@ footer {
 
 .btn-cerrar:hover {
   background: rgba(255, 0, 0, 0.5);
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 .detalle-contenido::-webkit-scrollbar {
@@ -473,6 +473,27 @@ footer {
 
 .Boton-Agregar:hover {
   background-color: #0056b3;
+}
+
+.boton-cerrar-formulario {
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.boton-cerrar-formulario:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+  transform: scale(1.1);
 }
 
 .proyectos-lista {
@@ -562,11 +583,13 @@ footer {
   text-align: center;
 }
 .BotonGuardar {
-  padding: 10px;
+  padding: 14px;
   border: none;
   border-radius: 10rem;
   background-color: #28a745;
   color: white;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -624,4 +647,58 @@ footer {
   padding: 10px;
   border-radius: 20px;
   margin-top: 20px;
+}
+.integrantes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formulario .integrante-item {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  align-items: center;
+}
+
+.formulario .integrante-item input {
+  flex: 1;
+  min-width: 120px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+
+.formulario .integrante-item button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.formulario .integrante-item button:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+
+.boton-agregar-integrante {
+  font-size: 0.875rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin: 0 20px;
+}
+
+.boton-agregar-integrante:hover {
+  background-color: #0056b3;
 }
