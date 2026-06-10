@@ -1,21 +1,27 @@
+import { NavLink } from 'react-router-dom';
+
 function Nav() {
   return (
-    <nav>
-      <a
-        href='/'
-        className='active'
+    <nav style={{ textAlign: 'center', margin: '20px' }}>
+      <NavLink
+        to='/dashboard'
+        style={{ color: 'white', margin: '0 20px' }}
       >
-        Dashboard Principal
-      </a>
-      <a href='/'>Explorador de Proyectos</a>
-      <div className='submenu'>
-        <button className='submenu-boton'>Detalle de Proyecto</button>
-        <div className='submenu-contenido'>
-          <a href='/'>Programación Visual</a>
-          <a href='/'>Inglés</a>
-        </div>
-      </div>
-      <a href='/'>Perfil de Usuario</a>
+        Dashboard
+      </NavLink>
+      <NavLink
+        to='/proyectos'
+        style={{ color: 'white', margin: '0 20px' }}
+      >
+        Proyectos
+      </NavLink>
+      {/* <NavLink to="proyectos/:id" style={{ color: 'white' }}>Proyectos</NavLink> */}
+      <NavLink
+        to='/perfil'
+        style={{ color: 'white', margin: '0 20px' }}
+      >
+        Perfil
+      </NavLink>
     </nav>
   );
 }
