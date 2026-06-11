@@ -384,6 +384,7 @@ footer {
   align-items: center;
   justify-content: center;
   transition: 0.2s ease;
+  text-decoration: none;
 }
 
 .btn-cerrar:hover {
@@ -608,6 +609,7 @@ footer {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .BotonVerDetalle:hover {

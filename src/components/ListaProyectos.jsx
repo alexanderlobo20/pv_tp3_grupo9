@@ -13,7 +13,7 @@ function ListaProyectos() {
   const [busqueda, setBusqueda] = useState('');
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
-  
+
   const [ultimaModificacion, setUltimaModificacion] = useState(null);
   const primerRender = useRef(true);
   const accionUsuario = useRef(false);
@@ -94,29 +94,10 @@ function ListaProyectos() {
               key={proyecto.id}
               proyecto={proyecto}
               onEliminar={eliminarProyecto}
-              onVerDetalle={(proyecto) => {
-                if (
-                  proyectoSeleccionado &&
-                  proyectoSeleccionado.id === proyecto.id
-                ) {
-                  setProyectoSeleccionado(null);
-                } else {
-                  setProyectoSeleccionado(proyecto);
-                }
-              }}
             />
           ))}
         </div>
       </div>
-
-      {proyectoSeleccionado && (
-        <div className='detalle-contenedor'>
-          <DetalleProyecto
-            proyecto={proyectoSeleccionado}
-            onCerrar={() => setProyectoSeleccionado(null)}
-          />
-        </div>
-      )}
 
       <RegistroActividad ultimaModificacion={ultimaModificacion} />
     </section>

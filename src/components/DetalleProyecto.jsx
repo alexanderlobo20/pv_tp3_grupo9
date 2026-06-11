@@ -1,20 +1,45 @@
 import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import proyectoService from '../services/proyectoService.js';
 
-function DetalleProyecto({ proyecto, onCerrar }) {
-  if (!proyecto) return null;
+function DetalleProyecto() {
+  const { id } = useParams();
 
-  const { id, titulo, categoria, estado, descripcion, recursos={}, equipo=[] 
+  const proyecto = proyectoService.obtenerProyectoId(Number(id));
+
+  if (!proyecto) {
+    return (
+      <p
+        style={{
+          color: 'white',
+          fontSize: '1.5rem',
+          textAlign: 'center',
+          padding: '20px',
+        }}
+      >
+        Proyecto no encontrado
+      </p>
+    );
+  }
+
+  const {
+    titulo,
+    categoria,
+    estado,
+    descripcion,
+    recursos = {},
+    equipo = [],
   } = proyecto;
 
   return (
     <div className='detalle-modal'>
       <div className='detalle-contenido'>
-        <button
+        <Link
+          to='/proyectos'
           className='btn-cerrar'
-          onClick={onCerrar}
         >
           ×
-        </button>
+        </Link>
         <h2 className='detalle-titulo'>{titulo}</h2>
         <div className='detalle-espaciado'>
           <p>

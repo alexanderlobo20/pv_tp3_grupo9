@@ -4,6 +4,7 @@ import ListaProyectos from './components/ListaProyectos';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import PerfilUsuario from './components/PerfilUsuario';
+import DetalleProyecto from './components/DetalleProyecto';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
           />
           <Route
             path='/proyectos/:id'
-            element={<ListaProyectos />}
+            element={<DetalleProyecto />}
           />
           <Route
             path='/perfil'

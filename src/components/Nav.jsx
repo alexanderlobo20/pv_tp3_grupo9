@@ -15,7 +15,6 @@ function Nav() {
       >
         Proyectos
       </NavLink>
-      {/* <NavLink to="proyectos/:id" style={{ color: 'white' }}>Proyectos</NavLink> */}
       <NavLink
         to='/perfil'
         style={{ color: 'white', margin: '0 20px' }}

@@ -30,7 +30,7 @@ const proyectoService = (() => {
         drive: 'https://drive.google.com/drive/folders/ingles-material',
         github: 'https://github.com/estudio/ingles-practica',
       },
-        equipo: [
+      equipo: [
         { nombre: 'Lobo Alexander Emanuel', rol: 'Desarrolador' },
         { nombre: 'Villar Florencia Lucia', rol: 'Desarrolador' },
         { nombre: 'Baca Fernando Ezequiel', rol: 'Diseñador' },
@@ -46,7 +46,8 @@ const proyectoService = (() => {
       recursos: {
         pdf: 'https://drive.google.com/file/d/prog-estructurada-guide',
         drive: 'https://drive.google.com/drive/folders/prog-estructurada',
-        github: 'https://github.com/estudio/programacion-estructurada-ejercicios'
+        github:
+          'https://github.com/estudio/programacion-estructurada-ejercicios',
       },
       equipo: [
         { nombre: 'Lobo Alexander Emanuel', rol: 'Desarrolador' },
@@ -64,7 +65,7 @@ const proyectoService = (() => {
       recursos: {
         pdf: 'https://drive.google.com/file/d/algebra-teoria-basica',
         drive: 'https://drive.google.com/drive/folders/algebra-ejercicios',
-        github: 'https://github.com/estudio/algebra-practica'
+        github: 'https://github.com/estudio/algebra-practica',
       },
       equipo: [
         { nombre: 'Lobo Alexander Emanuel', rol: 'Desarrolador' },
@@ -82,7 +83,7 @@ const proyectoService = (() => {
       recursos: {
         pdf: 'https://drive.google.com/file/d/bd-sql-apuntes',
         drive: 'https://drive.google.com/drive/folders/base-de-datos-material',
-        github: 'https://github.com/estudio/base-de-datos-sql-practica'
+        github: 'https://github.com/estudio/base-de-datos-sql-practica',
       },
       equipo: [
         { nombre: 'Lobo Alexander Emanuel', rol: 'Desarrolador' },
@@ -109,11 +110,16 @@ const proyectoService = (() => {
     );
   };
 
+  const obtenerProyectoId = (id) => {
+    return proyectos.find((proyecto) => proyecto.id === id);
+  };
+
   return {
     obtenerProyectos,
     agregarProyecto,
     eliminarProyecto,
     buscarProyecto,
+    obtenerProyectoId,
   };
 })();
 
