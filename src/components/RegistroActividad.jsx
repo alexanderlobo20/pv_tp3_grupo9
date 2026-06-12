@@ -1,4 +1,5 @@
 import React from 'react';
+import { Alert } from 'react-bootstrap';
 
 function RegistroActividad({ ultimaModificacion }) {
   if (!ultimaModificacion) return null;
@@ -9,11 +10,9 @@ function RegistroActividad({ ultimaModificacion }) {
   });
 
   return (
-    <div className='fecha-actualizacion'>
-      <p>
-        Ultima actualización de la lista: {fecha} a las {hora}
-      </p>
-    </div>
+    <Alert variant="info" className="registro-actividad">
+      Última actualización de la lista: {fecha} a las {hora}
+    </Alert>
   );
 }
 
