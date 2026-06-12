@@ -704,3 +704,370 @@ footer {
 .boton-agregar-integrante:hover {
   background-color: #0056b3;
 }
+
+/* Deshboard */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 80px 40px 40px;
+}
+.dashboard-titulo {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  padding: 1rem 0;
+  text-align: center;
+  color: white;
+  background-color: rgba(9, 4, 53, 0.863);
+  border-radius: 5rem;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+  text-shadow:
+    0 0 10px rgba(0, 217, 255, 0.158),
+    0 0 20px rgba(0, 217, 255, 0.3);
+}
+.dashboard-titulo i {
+  margin-right: 10px;
+  color: #00aeff;
+}
+
+
+.dashboard-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+/*Estilos Resumen*/
+
+.Resumen {
+  width: 400px;
+  height: 350px;
+  background: rgba(9, 4, 53, 0.671);
+  padding: 25px;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.Resumen:hover {
+  transform: translateY(-7px);
+  background-color: rgba(20, 19, 31, 0.671);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+.Resumen h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Candara', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Resumen h2 i {
+  margin-right: 8px;
+  color: #007bff;
+  font-size: 60px;
+  background-color: rgba(0, 123, 255, 0.1);
+  padding: 15px;
+  border-radius: 50%;
+}
+.Resumen p {
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Century Gothic', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.Resumen p:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.Resumen i {
+  margin-right: 8px;
+  color: #00d9ff;
+  background-color: rgba(0, 217, 255, 0.1);
+  padding: 4px;
+  border-radius: 50%;
+}
+
+/*Estilos Mensajes*/
+
+.Mensajes{
+  width: 450px;
+  height: 300px;
+  background: rgba(9, 4, 53, 0.671);
+  padding: 25px;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.Mensajes:hover {
+  transform: translateY(-7px);
+  background-color: rgba(20, 19, 31, 0.671);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+.Mensajes h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Candara', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Mensajes h2 i {
+  margin-right: 8px;
+  color: #007bff;
+  font-size: 60px;
+  background-color: rgba(0, 123, 255, 0.1);
+  padding: 15px;
+  border-radius: 50%;
+}
+.Mensajes p {
+  font-size: 15px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-family: 'Century Gothic', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Mensajes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.Mensajes ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Century Gothic', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+}
+.Mensajes ul li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.Mensajes ul li i {
+  margin-right: 8px;
+  color: #00d9ff;
+  background-color: rgba(0, 217, 255, 0.1);
+  padding: 4px;
+  border-radius: 50%;
+}
+
+/*Estilos Cronograma*/
+
+.Cronograma {
+  width: 600px;
+  height: 350px;
+  background: rgba(9, 4, 53, 0.671);
+  padding: 25px;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.Cronograma:hover {
+  transform: translateY(-7px);
+  background-color: rgba(20, 19, 31, 0.671);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+.Cronograma h2 {
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Candara', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Cronograma h2 i {
+  margin-right: 8px;
+  color: #007bff;
+  font-size: 60px;
+  background-color: rgba(0, 123, 255, 0.1);
+  padding: 15px;
+  border-radius: 50%;
+}
+.Cronograma p {
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Century Gothic', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.Cronograma p:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.Cronograma i {
+  margin-right: 8px;
+  color: #00d9ff;
+  background-color: rgba(0, 217, 255, 0.1);
+  padding: 4px;
+  border-radius: 50%;
+}
+/*Estilos Recursos*/
+
+.Recursos {
+  width: 400px;
+  height: 300px;
+  background: rgba(9, 4, 53, 0.671);
+  padding: 25px;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.Recursos:hover {
+  transform: translateY(-7px);
+  background-color: rgba(20, 19, 31, 0.671);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+.Recursos h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Candara', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Recursos h2 i {
+  margin-right: 8px;
+  color: #007bff;
+  font-size: 60px;
+  background-color: rgba(0, 123, 255, 0.1);
+  padding: 15px;
+  border-radius: 50%;
+}
+.Recursos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.Recursos ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Century Gothic', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+}
+.Recursos ul li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.Recursos ul li i {
+  margin-right: 8px;
+  color: #00d9ff;
+  background-color: rgba(0, 217, 255, 0.1);
+  padding: 4px;
+  border-radius: 50%;
+}
+.Recursos ul li a {
+  color: #00d9ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.Recursos ul li a:hover {
+  color: #ffffff;
+}
+body {
+  background: linear-gradient(
+    180deg,
+    #001355,
+    #002384,
+    #001355
+  );
+}
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(0, 217, 255, 0.04);
+  top: -150px;
+  right: -150px;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  bottom: -100px;
+  left: -100px;
+  z-index: -1;
+}
+
+.Resumen,
+.Mensajes,
+.Cronograma,
+.Recursos {
+  background: rgba(9, 4, 53, 0.671) !important;
+  color: white;
+}
+
+.perfil-card {
+  padding: 30px;
+  background: rgba(9, 4, 53, 0.671) !important;
+  color: white;
+  border-radius: 15px;
+}
+
+.perfil-card h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  padding: 1rem 0;
+  text-align: center;
+  color: white;
+  text-shadow:
+    0 0 10px rgba(0, 217, 255, 0.158),
+    0 0 20px rgba(0, 217, 255, 0.3);
+}
+.perfil-card h2 i {
+  margin-right: 8px;
+  color: #007bff;
+  font-size: 100px;
+  background-color: rgba(0, 123, 255, 0.1);
+  padding: 15px;
+  border-radius: 50%;
+}
+.perfil-card .texto {
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Century Gothic', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.perfil-card .texto:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.perfil-card i {
+  margin-right: 8px;
+  color: #00d9ff;
+  background-color: rgba(0, 217, 255, 0.1);
+  padding: 4px;
+  border-radius: 50%;
+}
