@@ -1,12 +1,12 @@
 import './css/style.css';
 import Header from './components/Header';
-import ListaProyectos from './components/ListaProyectos';
+import ListaProyectos from './views/ListaProyectos';
 import Footer from './components/Footer';
-import Dashboard from './components/Dashboard';
-import PerfilUsuario from './components/PerfilUsuario';
-import DetalleProyecto from './components/DetalleProyecto';
+import Dashboard from './views/Dashboard';
+import PerfilUsuario from './views/PerfilUsuario';
+import DetalleProyecto from './views/DetalleProyecto';
 import { Routes, Route } from 'react-router-dom';
-import { Container } from "react-bootstrap";
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
@@ -14,27 +14,27 @@ function App() {
       <Header />
       <main>
         <Container>
-            <Routes>
-              <Route
-                path='/'
-                element={<Dashboard />}
-              />
-              <Route
+          <Routes>
+            <Route
+              path='/'
+              element={<Dashboard />}
+            />
+            <Route
               path='/dashboard'
               element={<Dashboard />}
-              />
-              <Route
+            />
+            <Route
               path='/proyectos'
               element={<ListaProyectos />}
-              />
-              <Route
+            />
+            <Route
               path='/proyectos/:id'
               element={<DetalleProyecto />}
-              />
-              <Route
+            />
+            <Route
               path='/perfil'
               element={<PerfilUsuario />}
-              />
+            />
           </Routes>
         </Container>
       </main>
