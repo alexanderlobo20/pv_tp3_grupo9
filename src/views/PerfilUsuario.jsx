@@ -32,17 +32,19 @@ function PerfilUsuario() {
       color: '#fff',
     },
     '& .MuiInputLabel-root.Mui-focused': {
-      color: '#fff',
+      color: '#00b3ff',
     },
-    '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#fff',
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#fff',
+      },
+      '&:hover fieldset': {
+        borderColor: '#fff',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#00b3ff',
+      },
     },
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#00b3ff',
-    },
-     '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: '#0056b3',
-    }
   };
 
   return (
