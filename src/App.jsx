@@ -7,10 +7,11 @@ import PerfilUsuario from './views/PerfilUsuario';
 import DetalleProyecto from './views/DetalleProyecto';
 import { Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import { UsuarioProvider } from './context/UsuarioContext';
 
 function App() {
   return (
-    <>
+    <UsuarioProvider>
       <Header />
       <main>
         <Container>
@@ -39,7 +40,7 @@ function App() {
         </Container>
       </main>
       <Footer />
-    </>
+    </UsuarioProvider>
   );
 }
 
