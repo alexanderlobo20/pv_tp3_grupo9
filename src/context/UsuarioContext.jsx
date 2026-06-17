@@ -8,7 +8,6 @@ const usuarioDefault = {
   rol: 'Alumno',
   institucion: 'Ingeniería',
 };
-
 export function UsuarioProvider({ children }) {
   const [usuario, setUsuario] = useState(() => {
     const guardado = localStorage.getItem('usuario');
